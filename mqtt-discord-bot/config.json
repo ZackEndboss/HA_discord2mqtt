@@ -1,0 +1,30 @@
+{
+    "name": "MQTT Discord Bot",
+    "version": "1.0",
+    "slug": "mqtt_discord_bot",
+    "description": "A custom addon that runs a Python MQTT Discord Bot",
+    "startup": "application",
+    "boot": "auto",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "ports": {},
+    "privileged": ["NET_ADMIN"],
+    "webui": "",
+    "ingress": false,
+    "map": ["config:rw", "share:rw", "ssl"],
+    "schema": {
+      "mqtt_broker": "str",
+      "mqtt_port": "int",
+      "mqtt_username": "str",
+      "mqtt_password": "str",
+      "discord_token": "str",
+      "discord_guild_id": "str"
+    },
+    "options": {
+      "mqtt_broker": "localhost",
+      "mqtt_port": 1883,
+      "mqtt_username": "user",
+      "mqtt_password": "password",
+      "discord_token": "your_discord_token",
+      "discord_guild_id": "your_server_id"
+    }
+  }
