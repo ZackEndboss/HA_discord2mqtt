@@ -33,6 +33,6 @@ RUN chmod +x /etc/services.d/discord_bot/run
 
 
 # Setze den s6-Overlay als CMD
-CMD ["/init"]
+# CMD ["/init"]
 
 #CMD ["python", "./discord_mqtt.py"]
