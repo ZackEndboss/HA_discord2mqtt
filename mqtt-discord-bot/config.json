@@ -8,7 +8,6 @@
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "ports": {},
     "privileged": ["NET_ADMIN"],
-    "webui": "",
     "ingress": false,
     "map": ["config:rw", "share:rw", "ssl"],
     "schema": {
@@ -26,5 +25,6 @@
       "mqtt_password": "password",
       "discord_token": "your_discord_token",
       "discord_guild_id": "your_server_id"
-    }
+    },
+    "image": "ghcr.io/home-assistant/{arch}-addon-example"
   }
