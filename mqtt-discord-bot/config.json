@@ -4,7 +4,7 @@
     "slug": "mqtt_discord_bot",
     "description": "A custom addon that runs a Python MQTT Discord Bot",
     "startup": "application",
-    "boot": "auto",
+    "boot": "manual",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "ports": {},
     "privileged": ["NET_ADMIN"],
