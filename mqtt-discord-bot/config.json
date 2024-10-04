@@ -8,7 +8,6 @@
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "ports": {},
     "privileged": ["NET_ADMIN"],
-    "webui": "",
     "ingress": false,
     "map": ["config:rw", "share:rw", "ssl"],
     "schema": {
