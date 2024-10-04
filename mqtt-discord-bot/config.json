@@ -25,6 +25,5 @@
       "mqtt_password": "password",
       "discord_token": "your_discord_token",
       "discord_guild_id": "your_server_id"
-    },
-    "image": "ghcr.io/home-assistant/{arch}-addon-example"
+    }
   }
