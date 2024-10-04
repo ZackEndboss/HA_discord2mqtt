@@ -10,8 +10,11 @@ RUN \
 
 RUN \
     apk add --no-cache \
-        python3 \
-        py3-pip
+    gcc \
+    libc-dev \
+    linux-headers \
+    python3-dev \
+    py3-pip
 
 WORKDIR /usr/src/app
 
