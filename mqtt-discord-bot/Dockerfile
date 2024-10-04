@@ -41,4 +41,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN chmod a+x ./run.sh
 
-CMD [ "/run.sh" ]
+CMD [ "./run.sh" ]
