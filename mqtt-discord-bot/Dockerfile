@@ -23,16 +23,22 @@ COPY . .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Erstelle das Verzeichnis für den s6-Overlay-Service
-RUN mkdir -p /etc/services.d/discord_bot
+#RUN mkdir -p /etc/services.d/discord_bot
 
 # Kopiere das Start-Skript in das Service-Verzeichnis
-COPY run.sh /etc/services.d/discord_bot/run
+#COPY run.sh /etc/services.d/discord_bot/run
 
 # Mach das Start-Skript ausführbar
-RUN chmod +x /etc/services.d/discord_bot/run
+#RUN chmod +x /etc/services.d/discord_bot/run
 
 
 # Setze den s6-Overlay als CMD
 # CMD ["/init"]
 
 #CMD ["python", "./discord_mqtt.py"]
+
+# Copy data for add-on
+
+RUN chmod a+x ./run.sh
+
+CMD [ "/run.sh" ]
