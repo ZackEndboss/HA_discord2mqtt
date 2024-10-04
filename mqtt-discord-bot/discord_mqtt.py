@@ -5,25 +5,45 @@ from datetime import datetime
 import time
 import logging
 import os
+import json
 
 # Logger konfigurieren
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
+# Pfad zur Konfigurationsdatei
+config_path = "/data/options.json"
+
+# Konfigurationsdatei laden
+with open(config_path, 'r') as config_file:
+    config = json.load(config_file)
+
+    # MQTT Broker Informationen
+    broker      = config.get('mqtt_broker', 'localhost')
+    port        = config.get('mqtt_port', 1883)
+    username    = config.get('mqtt_username', '') # Ersetzen Sie diesen mit Ihrem MQTT-Benutzernamen
+    password    = config.get('mqtt_password', '') # Ersetzen Sie diesen mit Ihrem MQTT-Passwort
+    guild_id    = config.get('discord_guild_id', '') # Die ID des Servers, für den der Bot arbeiten soll
+    # Discord Bot Token
+    token       = config.get('discord_token', '')
+
+# Obsolete - DEV code
 if os.path.isfile(".env"):
     abs_path = os.path.abspath('.env')
     logging.info(f"loading local {abs_path}")
     from dotenv import load_dotenv
     load_dotenv(abs_path)
 
-# MQTT Broker Informationen
-topic       = "discord/events"
-broker      = os.getenv('MQTT_BROKER', 'localhost')
-port        = os.getenv('MQTT_PORT', 1883)
-username    = os.getenv('MQTT_USERNAME', '') # Ersetzen Sie diesen mit Ihrem MQTT-Benutzernamen
-password    = os.getenv('MQTT_PASSWORD', '') # Ersetzen Sie diesen mit Ihrem MQTT-Passwort
-guild_id    = os.getenv('DISCORD_GUILD_ID', '') # Die ID des Servers, für den der Bot arbeiten soll
-# Discord Bot Token
-token       = os.getenv('DISCORD_TOKEN', '')
+    # MQTT Broker Informationen
+    broker      = os.getenv('MQTT_BROKER', 'localhost')
+    port        = os.getenv('MQTT_PORT', 1883)
+    username    = os.getenv('MQTT_USERNAME', '') # Ersetzen Sie diesen mit Ihrem MQTT-Benutzernamen
+    password    = os.getenv('MQTT_PASSWORD', '') # Ersetzen Sie diesen mit Ihrem MQTT-Passwort
+    guild_id    = os.getenv('DISCORD_GUILD_ID', '') # Die ID des Servers, für den der Bot arbeiten soll
+    # Discord Bot Token
+    token       = os.getenv('DISCORD_TOKEN', '')
+
+topic = "discord/events"
 
 if isinstance(port, str) and port.isdecimal():
     port = int(port)
