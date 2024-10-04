@@ -35,7 +35,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Setze den s6-Overlay als CMD
 # CMD ["/init"]
 
-CMD ["python", "./discord_mqtt.py"]
+CMD ["python3", "./discord_mqtt.py"]
 
 # Copy data for add-on
 
