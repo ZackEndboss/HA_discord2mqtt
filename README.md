@@ -84,9 +84,9 @@ create 'options.json':
 ```
 
 ## Docker Build
-Erzeugen eines Docker-Builds:
+Create a Docker-Image and start Docker-Container:
 
-# Mapping von Architektur zu YAML-Schlüssel
+### Mapping Architektur to YAML-Schlüssel
 ```ARCH=$(uname -m); \
 if [ "$ARCH" = "x86_64" ]; then YAML_ARCH="amd64"; \
 elif [ "$ARCH" = "aarch64" ]; then YAML_ARCH="aarch64"; \
@@ -94,13 +94,13 @@ elif [ "$ARCH" = "armv7l" ]; then YAML_ARCH="armv7"; \
 else echo "Unsupported architecture: $ARCH"; exit 1; fi;
 ```
 
-# Extrahiere den build_from-Wert aus der build.yaml
+### Parse build_from-Value from build.yaml
 ```BUILD_FROM=$(grep "$YAML_ARCH:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 TEMPIO_VERSION=$(grep "TEMPIO_VERSION:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 ```
 
-### Führe den Docker-Build mit den ausgelesenen Argumenten durch
+### Start Docker-Build with Build-Arguments
 ```docker build --build-arg BUILD_FROM=$BUILD_FROM --build-arg TEMPIO_VERSION=$TEMPIO_VERSION --build-arg BUILD_ARCH=$YAML_ARCH -t mqtt-dicosrd-bot .```
 
-## Docker Run
+### Docker Run
 ```docker run -it --rm --name mqtt-dicosrd-bot -v /path/to/options.json:/data/options.json mqtt-dicosrd-bot```
