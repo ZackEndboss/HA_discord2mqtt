@@ -19,7 +19,8 @@ The MQTT-Sensor is splitted into a second sensor to map the events. For example:
 Add the following Sensors into your configuration.yaml:
 
 ## MQTT-Sensor
-```mqtt:
+```
+mqtt:
   sensor:
     - name: "Discord Event"
       unique_id: "discord"
@@ -32,7 +33,8 @@ Add the following Sensors into your configuration.yaml:
 ## Template-Sensor
 Sensor-Example to get User-Voice-Status of <nickname>
 It's a remapping of your mqtt-sensor with rules
-```template:
+```
+template:
   - sensor:
       # Remapping of mqtt-sensor.
       - name: "Discord <nickname>"
@@ -68,12 +70,13 @@ It's a remapping of your mqtt-sensor with rules
 
 
 # Running Add-On standalone
-on different docker-host without installing as Add-On in HA
+On different docker-host without installing as Add-On in HA
 
 ```cd mqtt-dicosrd-bot```
 
 create 'options.json':
-```{
+```
+{
     "mqtt_broker": "localhost",
     "mqtt_port": 1883,
     "mqtt_username": "user",
@@ -87,7 +90,8 @@ create 'options.json':
 Create a Docker-Image and start Docker-Container:
 
 ### Mapping Architektur to YAML-Schlüssel
-```ARCH=$(uname -m); \
+```
+ARCH=$(uname -m); \
 if [ "$ARCH" = "x86_64" ]; then YAML_ARCH="amd64"; \
 elif [ "$ARCH" = "aarch64" ]; then YAML_ARCH="aarch64"; \
 elif [ "$ARCH" = "armv7l" ]; then YAML_ARCH="armv7"; \
@@ -95,7 +99,8 @@ else echo "Unsupported architecture: $ARCH"; exit 1; fi;
 ```
 
 ### Parse build_from-Value from build.yaml
-```BUILD_FROM=$(grep "$YAML_ARCH:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
+```
+BUILD_FROM=$(grep "$YAML_ARCH:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 TEMPIO_VERSION=$(grep "TEMPIO_VERSION:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 ```
 
