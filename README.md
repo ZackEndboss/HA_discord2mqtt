@@ -1,6 +1,8 @@
 # Repository
 You can add the Repository into your Home-Assistant Add-On Store to add and auto. update your Add-Ons
 
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FZackEndboss%2FHomeAssistant_AddOns)
+
 ## Add-ons
 
 This repository contains the following add-ons
@@ -13,10 +15,6 @@ This repository contains the following add-ons
 # MQTT Discord Bot
 
 This Home Assistant add-on runs a Python script that listens for Discord events and sends them to MQTT-Broker.
-
-
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FZackEndboss%2FHomeAssistant_AddOns)
-
 
 ## Create an Discord-App
 The following guide describes in "Step 1" how to create a Discord app. Relevant points are the app name and the token. If necessary, the scope can also be adjusted to limit permissions.
