@@ -1,24 +1,35 @@
-# MQTT Discord Bot
-
-This Home Assistant add-on runs a Python script that listens for Discord events and sends them to MQTT-Broker.
-
-
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FZackEndboss%2FHA_discord2mqtt)
-
+# Repository
+You can add the Repository into your Home-Assistant Add-On Store to add and auto. update your Add-Ons
 
 ## Add-ons
 
 This repository contains the following add-ons
 
-### [mqtt-discord-bot add-on](./mqtt-discord-bot)
+#### [mqtt-discord-bot add-on](./mqtt-discord-bot)
+
+---
+---
+
+# MQTT Discord Bot
+
+This Home Assistant add-on runs a Python script that listens for Discord events and sends them to MQTT-Broker.
 
 
-# Sensor
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FZackEndboss%2FHomeAssistant_AddOns)
+
+
+## Create an Discord-App
+The following guide describes in "Step 1" how to create a Discord app. Relevant points are the app name and the token. If necessary, the scope can also be adjusted to limit permissions.
+
+#### [discord.com/docs/getting-started](https://discord.com/developers/docs/quick-start/getting-started#step-1-creating-an-app)
+
+
+## Sensor
 To take a look, which arguments available, use developer-tools and search for discord_event.
 The MQTT-Sensor is splitted into a second sensor to map the events. For example: the join/left event become the online/offline status
 Add the following Sensors into your configuration.yaml:
 
-## MQTT-Sensor
+### MQTT-Sensor
 ```
 mqtt:
   sensor:
@@ -30,7 +41,7 @@ mqtt:
       json_attributes_template: "{{ value_json | tojson }}"
 ```
 
-## Template-Sensor
+### Template-Sensor
 Sensor-Example to get User-Voice-Status of <nickname>
 It's a remapping of your mqtt-sensor with rules
 ```
@@ -69,12 +80,13 @@ template:
 ```
 
 
-# Running Add-On standalone
+## Running Add-On standalone (not in HA)
 On different docker-host without installing as Add-On in HA
 
+```git clone 
 ```cd mqtt-dicosrd-bot```
 
-create 'options.json':
+Create 'options.json':
 ```
 {
     "mqtt_broker": "localhost",
@@ -86,10 +98,10 @@ create 'options.json':
 }
 ```
 
-## Docker Build
-Create a Docker-Image and start Docker-Container:
+### Docker Build
+Create a Docker-Image and start Docker-Container
 
-### Mapping Architektur to YAML-Schlüssel
+#### Mapping Architektur to YAML-Schlüssel
 ```
 ARCH=$(uname -m); \
 if [ "$ARCH" = "x86_64" ]; then YAML_ARCH="amd64"; \
@@ -98,14 +110,14 @@ elif [ "$ARCH" = "armv7l" ]; then YAML_ARCH="armv7"; \
 else echo "Unsupported architecture: $ARCH"; exit 1; fi;
 ```
 
-### Parse build_from-Value from build.yaml
+#### Parse build_from-Value from build.yaml
 ```
 BUILD_FROM=$(grep "$YAML_ARCH:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 TEMPIO_VERSION=$(grep "TEMPIO_VERSION:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 ```
 
-### Start Docker-Build with Build-Arguments
+#### Start Docker-Build with Build-Arguments
 ```docker build --build-arg BUILD_FROM=$BUILD_FROM --build-arg TEMPIO_VERSION=$TEMPIO_VERSION --build-arg BUILD_ARCH=$YAML_ARCH -t mqtt-dicosrd-bot .```
 
-### Docker Run
+#### Docker Run
 ```docker run -it --rm --name mqtt-dicosrd-bot -v /path/to/options.json:/data/options.json mqtt-dicosrd-bot```

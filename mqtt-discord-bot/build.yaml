@@ -8,7 +8,7 @@ build_from:
 labels:
   org.opencontainers.image.title: "MQTT Discord Bot"
   org.opencontainers.image.description: "A custom addon that runs a Python MQTT Discord Bot"
-  org.opencontainers.image.source: "https://github.com/ZackEndboss/HA_discord2mqtt"
+  org.opencontainers.image.source: "https://github.com/ZackEndboss/HomeAssistant_AddOns"
   org.opencontainers.image.licenses: "MIT"
 args:
   TEMPIO_VERSION: "2021.09.0"
