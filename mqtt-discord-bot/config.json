@@ -3,7 +3,7 @@
   "version": "1.0.15",
   "slug": "mqtt_discord_bot",
   "init": false,
-  "description": "A custom addon that runs a Python MQTT Discord Bot",
+  "description": "Who is currently online on Discord and with whom.",
   "startup": "application",
   "boot": "manual",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
