@@ -1,6 +1,6 @@
 {
   "name": "MQTT Discord Bot",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "slug": "mqtt_discord_bot",
   "init": false,
   "description": "A custom addon that runs a Python MQTT Discord Bot",
