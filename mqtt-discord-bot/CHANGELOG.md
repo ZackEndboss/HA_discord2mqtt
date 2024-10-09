@@ -3,6 +3,7 @@
 ## 1.0.15
 
 - rename repository
+- Change Add-On description
 
 ## 1.0.14
 
