@@ -125,3 +125,10 @@ TEMPIO_VERSION=$(grep "TEMPIO_VERSION:" build.yaml | sed 's/.*: "\(.*\)"/\1/')
 
 #### Docker Run
 ```docker run -it --rm --name mqtt-dicosrd-bot -v /path/to/options.json:/data/options.json mqtt-dicosrd-bot```
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
+[version]: https://img.shields.io/badge/version-v1.0.15-blue.svg
