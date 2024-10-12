@@ -13,15 +13,6 @@
   "map": ["backup", "config:rw", "share:rw", "ssl"],
   "codenotary": "borgmatic+hassio@zacky.org",
   "schema": {
-    "user": null,
-    "host": null,
-    "port": 22,
-    "path": "~",
-    "archive": "hassio",
-    "passphrase": null,
-    "prune_options": "--keep-daily=8 --keep-weekly=5 --keep-monthly=13"
-  },
-  "options": {
     "user": "str",
     "host": "str",
     "port": "port",
@@ -29,5 +20,14 @@
     "archive": "str",
     "passphrase": "password",
     "prune_options": "str?"
+  },
+  "options": {
+    "user": null,
+    "host": null,
+    "port": 22,
+    "path": "~",
+    "archive": "hassio",
+    "passphrase": null,
+    "prune_options": "--keep-daily=8 --keep-weekly=5 --keep-monthly=13"
   }
 }
