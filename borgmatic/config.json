@@ -1,0 +1,33 @@
+{
+  "name": "borgmatic",
+  "version": "1.0.1",
+  "slug": "borgmatic",
+  "init": false,
+  "description": "Home Assistant Borgmatic Add-On",
+  "startup": "application",
+  "boot": "manual",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "ports": {},
+  "privileged": ["NET_ADMIN"],
+  "ingress": false,
+  "map": ["backup", "config:rw", "share:rw", "ssl"],
+  "codenotary": "borgmatic+hassio@zacky.org",
+  "schema": {
+    "user": null,
+    "host": null,
+    "port": 22,
+    "path": "~",
+    "archive": "hassio",
+    "passphrase": null,
+    "prune_options": "--keep-daily=8 --keep-weekly=5 --keep-monthly=13"
+  },
+  "options": {
+    "user": "str",
+    "host": "str",
+    "port": "port",
+    "path": "str",
+    "archive": "str",
+    "passphrase": "password",
+    "prune_options": "str?"
+  }
+}

@@ -11,7 +11,7 @@
   "privileged": ["NET_ADMIN"],
   "ingress": false,
   "map": ["config:rw", "share:rw", "ssl"],
-  "codenotary": "discord2mqtt@zacky.org",
+  "codenotary": "discord2mqtt+hassio@zacky.org",
   "schema": {
     "mqtt_broker": "str",
     "mqtt_port": "int",
