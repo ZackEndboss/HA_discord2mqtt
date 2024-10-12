@@ -14,6 +14,7 @@ RUN \
     openssh-client \
     openssh-keygen
 
+RUN pip install --upgrade pip
 RUN pip install borgmatic
 
 WORKDIR /
