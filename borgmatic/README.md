@@ -9,7 +9,8 @@ Based on [BorgBackup by yeah (Jan)](https://github.com/yeah/hassio-borg_backup/t
 ## Summary
 
 This Add-on backup the contents of `/backup` to a remote [Borg Backup](https://www.borgbackup.org/) server.
-The Pre-Version of this addon is using borg only - in second step it will be transform into borgmatic
+
+⚠ The Pre-Version of this addon is using borg only - in second step it will be transform into borgmatic ⚠
 
 ## Installation
 

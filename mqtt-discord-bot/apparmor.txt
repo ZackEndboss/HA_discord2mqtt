@@ -1,0 +1,42 @@
+#include <tunables/global>
+
+profile mqtt-discord-bot flags=(attach_disconnected, mediate_deleted) {
+  #include <abstractions/base>
+
+  # Erlaubt den allgemeinen Dateizugriff, den dein Python-Skript möglicherweise benötigt
+  file,
+
+  # Erlaubt dem Profil, Signale an andere Prozesse zu senden
+  signal (send) set=(kill, term, int, hup, cont),
+
+  # Zugriff auf Python-Interpreter und notwendige Binärdateien
+  /usr/bin/python3 ix,
+  /usr/bin/pip3 ix,
+  /usr/bin/tempio ix,
+
+  # Zugriff auf das Arbeitsverzeichnis und die Python-Skripte
+  /usr/src/app/** rwix,
+
+  # Zugriff auf Python-Bibliotheken und abhängige Pakete
+  /usr/lib/python3.*/** rix,
+
+  # Erlaubt das Lesen, Schreiben und Erstellen von Dateien im /tmp-Verzeichnis
+  /tmp/** rwk,
+
+  # Zugriff auf das Datenverzeichnis für spezifische Daten des Add-ons
+  /data/** rwk,
+
+  # Erlaubt das Lesen von Systemkonfigurationen
+  /etc/passwd r,
+  /etc/group r,
+
+  # Gerätezugriff, falls erforderlich
+  /dev/tty rw,
+  /dev/urandom r,
+
+  # Bashio-Support
+  /usr/lib/bashio/** ix,
+
+  # Zugriff auf geloggte Daten, falls Logging erforderlich ist
+  /var/log/** rw,
+}
