@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.17
+
+- Logging in Systemzeit
+- fix depreciation warning with discord-clientid
+
 ## 1.0.16
 
 - Add apparmor

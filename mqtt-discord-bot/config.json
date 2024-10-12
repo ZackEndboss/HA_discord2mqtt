@@ -1,6 +1,6 @@
 {
   "name": "MQTT Discord Bot",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "slug": "mqtt_discord_bot",
   "init": false,
   "description": "Who is currently online on Discord and with whom.",

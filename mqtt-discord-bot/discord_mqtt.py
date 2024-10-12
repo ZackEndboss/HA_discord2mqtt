@@ -6,6 +6,7 @@ import time
 import logging
 import os
 import json
+import random
 
 # Logger konfigurieren
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -66,7 +67,8 @@ def connect_mqtt():
         else:
             logging.error(f"Failed to connect, return code {rc}")
 
-    client = mqtt_client.Client()
+    client_id = f'discord-mqtt-{random.randint(0, 1000)}'
+    client = mqtt_client.Client(mqtt_client.CallbackAPIVersion.VERSION1, client_id)
     client.username_pw_set(username, password)  # Benutzername und Passwort setzen
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
@@ -102,7 +104,7 @@ async def on_ready():
 @client.event
 async def on_voice_state_update(member, before, after):
     if member.guild.id == int(guild_id):
-        event_time = datetime.utcnow().isoformat() + 'Z'
+        event_time = datetime.now().isoformat()
         channel = after.channel if after.channel else before.channel
         current_members = [m.name for m in channel.members] if channel else []
         data = {
