@@ -1,6 +1,6 @@
 {
   "name": "borgmatic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "slug": "borgmatic",
   "init": false,
   "description": "Home Assistant Borgmatic Add-On",

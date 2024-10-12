@@ -77,3 +77,10 @@ Please note that this Add-on does not trigger Hassio snapshots. You will have to
   action:
   - service: hassio.snapshot_full
 ```
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
+[version]: https://img.shields.io/badge/version-v1.0.2-blue.svg
